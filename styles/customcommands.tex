@@ -1,0 +1,69 @@
+% !TEX root =  thesis.tex
+
+%----------------------------------------------------------------------------------------
+%	CUSTOM COMMANDS
+%----------------------------------------------------------------------------------------
+
+% Define all you customized latex commands hereo
+
+% Define a command for a partial derivative (curly d's)
+% Use as:
+%   \partial{x}{t}      => dx / dt
+%   \partial[n]{x}{t}   => d^n x / dt^n
+%
+\newcommand{\deriv}[3][1]{%
+	\ifthenelse{\equal{#1}{1}}{		% true: format without power
+		\ensuremath{\frac{\partial#2}{\partial#3}}
+	}{								% false: format with power
+		\ensuremath{\frac{\partial^{#1}#2}{\partial#3^{#1}}}
+	}%
+}
+
+% Unit shortcuts
+\newcommand{\um}{\ensuremath{\mu \rm{m}}\xspace}
+\newcommand{\degr}{\ensuremath{^{\circ}}\xspace}
+\newcommand{\arcsec}{\ensuremath{^{\prime\prime}}\xspace}
+
+% Scientific notation short cut
+\newcommand{\E}[1]{\ensuremath{\times10^{#1}}}
+\newcommand{\pair}{\ensuremath{e^\pm}}
+\newcommand{\udef}{\stackrel{\mathrm{def}}{=}}
+\newcommand{\kms}{{\mathrm{km\ s^{-1}}}}
+\newcommand{\Msun}{{\mathrm{M}_\odot}}
+\newcommand{\masyr}{\,\mathrm{mas}\,\mathrm{yr}^{-1}}
+
+% A few commands that control brackets
+\newcommand{\sbr}[1]{\ensuremath{\left\{ #1 \right\}}}
+\newcommand{\cbr}[1]{\ensuremath{\left( #1 \right)}}
+\newcommand{\rbr}[1]{\ensuremath{\left[ #1 \right]}}
+
+% Miscellanea
+\DeclareRobustCommand{\Eqref}[1]{Eq.~\ref{#1}}
+\DeclareRobustCommand{\Figref}[1]{Fig.~\ref{#1}}
+\DeclareRobustCommand{\Tabref}[1]{Tab.~\ref{#1}}
+\DeclareRobustCommand{\Secref}[1]{Sec.~\ref{#1}}
+\DeclareRobustCommand{\Chref}[1]{Ch.~\ref{#1}}
+
+\newcommand{\binaryc}{\texttt{binary\_c}\ }
+
+\definecolor{Orange}{HTML}{FF9900}
+\newcounter{TODOLIST}
+\newcommand{\todo}[1]{\stepcounter{TODOLIST} {$\blacksquare$~\textbf{\color{red}[TODO: #1]}}~$\blacksquare$}
+\renewcommand{\labelitemii}{$\bullet$}
+
+
+% citation aliases
+\defcitealias{tauris:98}{TT98}
+\defcitealias{ramirez-agudelo:15}{R-A15}
+
+\interfootnotelinepenalty=10000    % brute-forces the footnote not to break over two pages
+\setlength{\belowcaptionskip}{-5pt}
+
+%%% TOC customization%%% TOC customization
+\makeatletter
+\renewcommand{\@dotsep}{10000} 
+\makeatother
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../thesis_renzo"
+%%% End:

@@ -1,0 +1,48 @@
+% !TEX root = ../tex/thesis.tex
+
+% Define a local referenced item command
+\newcommand{\coitem}[1]{\item[Chapter~\ref{#1}:] \nameref{#1}}
+\newcommand{\coauthors}[1]{\begin{flushleft} {\rm\normalsize #1} \\ \end{flushleft}}
+\newcommand{\cojournal}[1]{\begin{flushleft} {\it\normalsize #1} \\ \medskip \end{flushleft}}
+\newcommand{\note}[1]{\begin{flushleft} {\footnotesize \normalsize #1} \\ \medskip \end{flushleft}}
+
+% There is no easy way to generate this automatically
+\chapter{Contribution from co-authors}
+% \vspace*{-1cm}
+% \vspace*{1cm}
+
+ \bigskip
+
+\begin{description} 
+% This is where you list the contribution of all your coauthors (see article 15 of the regulations).
+
+  \coitem{ch2} %
+  \coauthors{you, your co-authors}
+  \cojournal{Astronomy \& Astrophysics, 20XX, YY, ZZZ}
+  \note{(Also referred to as \citealt{})}
+    
+\end{description}
+
+%% this is not mandatory
+% {
+%   \footnotesize
+  
+%   \noindent The chapters accepted for publication have been typographically
+%   adapted.
+
+%   \noindent
+%   The following typos have been corrected:
+%   \begin{itemize}
+%   \item 
+%   \end{itemize}
+% }
+
+
+% Reset reference style
+\renewcommand\chapterautorefname{chapter}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../thesis_renzo"
+%%% End:

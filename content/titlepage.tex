@@ -1,0 +1,133 @@
+% !TEX root =  thesis.tex
+
+%
+% The mandatory, pedel-approved title page (front/back)
+%
+
+% Change global settings, but restore them at the end!
+\pagestyle{empty}
+\setlength\parindent{0pt}
+
+% Parse the title information to the pdf meta data
+\makeatletter
+\hypersetup{%
+    pdftitle={\@title},
+    pdfauthor={\@author},
+    pdfsubject={Astronomy},
+    pdfcreator={\@author}}
+\makeatother
+
+
+%----------------------------------------------------------------------------------------
+%	COVER PAGE
+%----------------------------------------------------------------------------------------
+
+% Use a bit of minipage trickery to shift the title page to the center
+%\begin{minipage}[c][190mm][c]{118mm} %% Full center
+\begin{minipage}[c][190mm][c]{124mm}  %% 6mm offset from center to right
+% For the print edition I choose to offset the page to compensate for the
+% binding back. This gives the illusion that the title page is centered.
+% For the digital edition I use the true center. 
+\makeatletter
+\begin{center}
+	%% Leading whitespace
+	\vspace*{1.2cm}
+
+	%% Thesis title
+	{ \huge \bf \@title }\\[2.7cm]
+
+	%% Thesis type
+	\textsc{\Large ACADEMISCH PROEFSCHRIFT}\\[1.2cm]
+	\ifdraft \textsc{\Large DRAFT -- \today}\\[1.0cm] \fi
+	
+	%% Auxiliary details
+	\linespread{1.2}
+	\large \textrm{
+		ter verkrijging van de graad van doctor \\
+		aan de Universiteit van Amsterdam \\
+		op gezag van de Rector Magnificus \\
+		prof.~dr.~K.~I.~J.~Maex \\
+		ten overstaan van een door het College voor Promoties ingestelde \\
+		commissie, in het openbaar te verdedigen in de \@location \\
+		op \@date \\ 
+		\vspace{0.9cm}
+		door \\[0.3cm]
+		\vspace{0.9cm}
+		{\bf \@author}\\[0.3cm]
+ 		geboren te BIRTHPLACE \\[0.3cm]  
+	 }
+\end{center}
+\makeatother
+\end{minipage}
+
+%% Clear out the remaining page
+\clearpage
+
+
+%----------------------------------------------------------------------------------------
+%	DOCTORAL BOARD
+%----------------------------------------------------------------------------------------
+
+% Custom header type
+{\bf\normalsize Promotiecommissie:} \\[0.2cm]
+
+% List boardmembers
+\begin{tabular}{@{}lll}
+     Promotor:      & prof.~dr.   & Universiteit van Amsterdam\\
+					&									&	                         \\
+	Overige leden:	&  & \\
+                    &  & \\
+                    &  & \\
+                    &  & \\
+                         
+                    &  & \\
+                    &  & \\
+                    &  &
+
+\end{tabular} 
+
+\vspace*{0.2cm}
+% Note faculty
+Faculteit der Natuurwetenschappen, Wiskunde en Informatica
+
+% Optional footnote
+\vspace*{\fill}
+
+\begin{figure}[!h]
+\includegraphics[width=0.4\textwidth]{gfx/titlepage/UvA_logo.pdf}
+\hspace{4cm}
+\includegraphics[width=0.25\textwidth]{gfx/titlepage/API_logo.pdf}
+\end{figure}
+
+% Report financial backing of the research (see article 15.5)
+{\small The research reported in this thesis was carried out at the Anton
+  Pannekoek Institute for Astronomy (API), University of Amsterdam. It was supported by fundings from the National Science
+  Foundation under Grant No.~NSF PHY11-25915. The Leids Kerkhoven-Bosscha Fonds
+  (LKBF) provided occasional travel fundings.} \vspace{0.5em}
+
+\clearpage
+
+\thispagestyle{empty}
+\null\vfill\null
+\hfill\parbox{110mm}{
+  \raggedleft
+    \emph{\large quote}\\[5pt]
+  S.~omeone
+}
+\null\vfill\null
+\clearpage
+\thispagestyle{empty}
+\newpage
+\phantom{let's kill those trees}
+
+%----------------------------------------------------------------------------------------
+%   Restore default settings
+%----------------------------------------------------------------------------------------
+\pagestyle{fancy}
+\setlength\parindent{15pt}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../thesis_renzo"
+%%% End:

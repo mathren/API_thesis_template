@@ -1,0 +1,141 @@
+%%% !TEX TS-program = PartialThesis
+
+%%% Most settings such as pagesize controls are hidden 
+%%% in the apithesis.cls, which also imports a host of
+%%% helpful packages.
+%%% 
+%%% Special options are:
+%%%   - final / draft
+%%%   - cropmarks / nocropmarks
+%%%   - frame / noframe
+%%%   - print / noprint
+%%% Because apithesis is a specialized book class, you can
+%%% also use regular options such as [fleqn, opeany] etc.
+%%% 
+%%% In draft mode the document is typeset using B5 page margins
+%%% on a A4 page size.
+%%% In final mode the document is typeset using B5 page size,
+%%% while frames and/or cropmarks will be removed.
+%%%
+% \documentclass[fleqn,draft,noframe,cropmarks]{styles/apithesis}
+\documentclass[final,print]{styles/apithesis}
+\usepackage{graphicx}
+\usepackage[varg]{txfonts}
+\usepackage{amsmath}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{comment}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage[normalem]{ulem}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{listings}
+%%% for tree diagram
+\usepackage{forest}
+\usepackage{tikz-qtree}
+\usetikzlibrary{shadows,trees}
+\usepackage{lscape}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{wrapfig}
+\usepackage{supertabular}
+\usepackage[scientific-notation=true]{siunitx}
+
+%%% Load your customized layout file
+\input{styles/layout}
+
+%%% Load your custom latex commands
+\input{styles/customcommands}
+
+%%% Prepare the title page information
+\title{your title}
+\author{Your name}
+\date{date,te 11:00\,uur}  %% make sure this is in dutch
+\location{Aula der Universiteit}
+
+
+%%%------------------------------------------------------------------------------------------
+%%%	FRONTMATTER
+%%%------------------------------------------------------------------------------------------
+%%% limit compilation time by compiling only what you need
+%%% \includeonly{content/intro/intro} 
+
+\begin{document}
+\frontmatter
+\include{content/titlepage} 	%%% mandatory 
+
+%%%---------------------------------------------------------------------------------------
+%%%	LIST OF CONTENTS
+%%%------------------------------------------------------------------------------------------
+
+\include{styles/toc} 			%%% Table of content
+% \newpage
+% \phantom{let's kill those tree!}
+%%%------------------------------------------------------------------------------------------
+%%%	THESIS CHAPTERS
+%%% ------------------------------------------------------------------------------------------
+\setcounter{page}{1}        	%%%\cleardoublepage
+\mainmatter
+\include{content/intro/intro}                          % introduction
+\include{content/chapter2/chapter2}
+\begin{appendices}
+  %   %% modify slightly header defined in styles/layout.tex
+  \titleformat{\chapter}[display]{\LARGE}{\vspace*{-2.3\baselineskip}\raggedleft\textcolor{chcol}{\normalsize
+      \chaptertitlename\hspace*{4em}}\\\titlerule\vspace*{0.5pc}{\hrulefill\fontsize{150}{150}\selectfont\textcolor{chcol}{\thechapter}}}{-77pt}{ 
+    \scshape \rmfamily  \linespread{1000}\parbox[t][0pt][c]{0.8\textwidth}}
+  \include{content/chapter2/appendix2} 
+\end{appendices}
+
+
+%%% ---------------------------------------------------------------------------------------
+%%%	BIBLIOGRAPHY
+%%%------------------------------------------------------------------------------------------
+%%% If you disabled the bibliography entry in the TOC my might use this
+%%% command to enable a running head.
+% \lhead{{\sffamily \small \slshape Bibliography}}
+
+\setlength{\bibsep}{0.0pt}	%%% controls the reference list items separation
+
+%%% Set bibliography styles:
+%%% \bibliographystyle{styles/apj} 		%%% apj style, file apj.bst
+%%% \bibliographystyle{styles/aa}        %%% A&A style, file aa.bst
+\bibliographystyle{styles/linked-apj} 	%%% Customized apj style that recreates ApJ's colored 
+					                    %%% hyperlinks to journals [pink] and ADS [blue].
+                                        %%% It assumes your bibentries come from ADS, and have
+
+                                        %%% the 'adsurl' keyword.
+                                        %%% Do not use this style for print edition!
+                                        %%% Do not blindly use this style, it may still have
+                                        %%% a few bugs.
+
+								
+%%% Load the bibtex library
+%%% You can use multiple libraries, but watch out for double entries!
+%%% Also make sure that there are no lingering bibliography or style
+%%% definitions in the individual chapters. 
+\bibliography{content/bibliography/references.bib}
+
+
+%%%------------------------------------------------------------------------------------------
+%%%	BACKMATTER
+%%%------------------------------------------------------------------------------------------
+
+%%% The backmatter function turns off chapter numbering
+\backmatter
+\renewcommand{\chaptermark}[1]{\markboth{\sffamily \small \slshape #1 }{}}  %%% Remove chapter numbering from the headings
+%\let\cleardoublepage\clearpage
+
+\include{content/coauthors}         %%% mandatory
+\include{content/publications}		%%% optional
+\include{content/samenvatting} 	    %%% mandatory
+%%% \include{content/summary} 		%%% mandatory -- not if it is in the intro!
+\include{content/acknowledgements}  %%% optional (but not really!)
+\include{content/afterquote}        %%% optional
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

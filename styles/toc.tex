@@ -1,0 +1,29 @@
+% !TEX root =  thesis.tex
+
+% PAGE HEADINGS
+\pagenumbering{roman}%\setcounter{page}{1}
+\cleardoublepage
+\fancyhead[LE,RO]{\rmfamily \small \scshape \contentsname}
+\fancyhead[LO,RE]{}
+
+
+%%%% table of contents %%%%
+{
+  \hypersetup{linkcolor=chcol}
+  \tableofcontents
+}
+%\listoffigures
+%\listoftables
+\cleardoublepage
+% \clearpage
+% restore page numbering style 
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\fancyhead[LE]{\leftmark}
+\fancyhead[RO]{\rightmark}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../thesis_renzo"
+%%% End:

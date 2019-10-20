@@ -1,0 +1,202 @@
+% !TEX root =  thesis.tex
+
+% This document describes all layout settings for page headings, section titles,
+% linespread etcetera.
+
+%----------------------------------------------------------------------------------------
+%	CONTROL PACKAGES
+%----------------------------------------------------------------------------------------
+
+\usepackage[titletoc]{appendix}	% for additional appendix formatting commands
+%\usepackage[Bjornstrup]{fncychap}		% for chapter symbol formatting
+\usepackage{titletoc}
+\usepackage[nottoc]{tocbibind}	% Add the bibliography to the table of content
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[footnotesize,bf]{caption}	% change caption formatting
+\usepackage{pdfpages}
+
+%----------------------------------------------------------------------------------------
+%	TYPEFACE SETTINGS
+%----------------------------------------------------------------------------------------
+
+% A selection of font packages
+%\usepackage{mathpazo}				% Adds palatino like math symbols
+%\usepackage{helvet}				% Use helvetica as main fonts
+%\usepackage[charter]{mathdesign} 	% Use 'Adobe Utopia' as math font
+%\usepackage[garamond]{mathdesign} 	% Use 'URW Gara?mond' as math font
+%\usepackage[utopia]{mathdesign} 	% Use 'Bit?stream Char?ter' as math font
+%\usepackage{txfonts}				% Use 'Times'-line math font
+%\newcommand\hmmax{0}\usepackage{bm}% Add bold font math symbols
+%\usepackage[mathcal]{eucal}		% Use the 'Euler' math font
+
+
+% Mix-n-match your preferred thesis font
+\DeclareSymbolFont{usualmathcal}{OMS}{cmsy}{m}{n}			% set symbol font
+\DeclareSymbolFontAlphabet{\mathcal}{usualmathcal}			% set calligraphic math symbols
+\DeclareMathAlphabet{\mathbbm}{U}{bbm}{m}{n}				% set bold math font
+
+%----------------------------------------------------------------------------------------
+%	SPACING SETTINGS
+%----------------------------------------------------------------------------------------
+
+% Set spacing options
+\linespread{1.1}
+\addtolength{\footskip}{0.5cm}
+\addtolength{\headheight}{\baselineskip}
+
+\interfootnotelinepenalty=10000
+
+%\addtolength{\headheight}{1.1pt}
+
+%\setlength{\captionmargin}{4mm}
+
+\renewcommand{\contentsname}{Contents}
+\setcounter{tocdepth}{1}
+
+\fnbelowfloat % place bottom float above the footnotes
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%\setlength{\parindent}{0cm}
+\addtolength{\voffset}{1.5\baselineskip}
+\addtolength{\evensidemargin}{-10mm}
+\addtolength{\oddsidemargin}{10mm}
+
+%\renewcommand{\sectfont}{\rmfamily\bfseries}
+\addto\captionsenglish{\renewcommand{\figurename}{\footnotesize Fig.}}
+\renewcommand{\topfraction}{0.9}  % Florian: 0.9
+\renewcommand{\bottomfraction}{0.9}  % Florian: 0.9
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
+\setlength{\floatsep}{14pt plus 10pt minus 4pt}
+\setlength{\intextsep}{14pt plus 10pt minus 4pt}
+\setlength{\textfloatsep}{20pt plus 12pt minus 4pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%USE:
+%  Here's where the tabletoc and titlesec stuff is put.
+%\titleformat{cmd}[shape]{format}{label}{sep}{before-code}
+%{cmd} = \chapter, \section etc.
+%[shape]: 'display' puts the title chapter on a separate line, 'hang' a hanging label (label begint op zelfde regel als nummer en gaat eronder door), 'runin' should produce a run-in title, but that is not working, 'frame' puts a line-frame around the title.
+%{format}: typeset, applies to both label and text
+%{label}: formatting of the heading (chapter) number, refer to actual number by using \thechapter
+%{sep}: distance between heading number and title text. Depending on the shape argument this can refer either to vertical or horizontal spacing
+%{before-code}: code executed preceding the heading text, picks up heading text
+%
+%\titlespacing{cmd}{left-sep}{before-sep}{after-sep}[rigth-sep]
+%{left-sep}: specifies the increase in the left margin
+%{before-sep}: vertical space added above the heading
+%{after-sep}: seperation between heading and following paragraph
+%[rigth-sep]: specifying increase in right margin
+
+
+% %   Mathieu Renzo 
+% \titleformat{\chapter}[display]
+% {\huge}
+% {\vspace*{-2.4\baselineskip}\raggedright
+%   \textcolor{gray!50}{\hspace*{15pt}{\normalsize\chaptertitlename}}\\\titlerule\vspace*{0.5pc}\hspace*{-5pt}\textcolor{gray!50}{\fontsize{160}{160}\selectfont\thechapter}\titlerule\vspace*{1pc}}
+% {-95pt}{\sffamily \slshape \hspace*{90pt}\parbox[t][0pt][c]{0.79\textwidth}}
+% \titlespacing{\chapter}{0pt plus 0pt minus 100pt}{0pt plus 3pt minus 3pt}{60pt plus 10pt minus 50pt}
+
+%% load font
+% \usepackage{metrouberfont}
+
+\titleformat{\chapter}[display]{\LARGE}{\vspace*{-2.3\baselineskip}\raggedleft\textcolor{chcol}{\normalsize\rm
+    \chaptertitlename\hspace*{2.5em}}\\\titlerule\vspace*{0.5pc}{\hrulefill\fontsize{150}{150}\selectfont\selectfont\textcolor{chcol}{\thechapter}}}{-77pt}{
+  \scshape \rmfamily \linespread{1000}\parbox[t][0pt][c]{0.8\textwidth}}
+\titlespacing{\chapter}{0pt plus 0pt minus 100pt}{0pt plus 3pt minus 3pt}{80pt
+  plus 60pt minus 50pt}
+
+\titleformat{\section}
+ {\normalfont\Large\bfseries}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+ {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+ {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% This is to get completely empty pages on the left of a chapter opening page.
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+  \hbox{}
+  \thispagestyle{plain}
+  \newpage
+  \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  fancyhdr settings
+
+\pagestyle{fancy}
+
+
+%THESE COMMANDS GET THE CHAPTER HEADER AND NUMBER
+%\renewcommand{\chaptermark}[1]{\markboth{
+%  \sffamily \small \bfseries \chaptertitlename\ \thechapter:\ #1}{}}
+\renewcommand{\chaptermark}[1]{\markboth{
+    \rm \small \scshape\thechapter \; \ #1 }{}}
+\renewcommand{\headrulewidth}{0.5pt}
+\newcommand{\chapsubhead}[1]{{\normalsize #1}}%
+  
+\renewcommand{\sectionmark}[1]{\markright{
+  \rm \small \scshape  \thesection  \; \ #1 }}
+
+% Chapter title on the left, paragraph on the right.
+% Page numbers on the outside.
+%\fancyhf[HLE]{\nouppercase{\leftmark}}
+%\fancyhf[HRO]{\nouppercase{\rightmark}}
+%\fancyhf[HLO]{\thepage}
+%\fancyhf[HLE]{\thepage}
+% -----
+\fancyhf{}
+%\fancyhead[LE]{\leftmark}
+%\fancyhead[RO]{\rightmark}
+
+\fancyhead[LE]{\nouppercase{\leftmark}}
+\fancyhead[RO]{\nouppercase{\rightmark}}
+
+\fancyfoot[LE,RO]{\small\thepage}
+\fancyfoot[C]{}
+
+% for the chapter opening pages:
+\fancypagestyle{plain}{    
+  \fancyhf{}
+  \fancyfoot[C]{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[LE,RO]{\small\thepage}
+}
+
+\setlength{\parskip}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Custom environment definitions
+\newenvironment{abstract}
+{\begin{center}{\it\normalsize Abstract}\\ \end{center}}
+{\clearpage}
+
+\newcommand{\chauthors}[1]{\begin{center} {\rm\normalsize #1} \\ \end{center}}
+\newcommand{\chjournal}[1]{\begin{center} {\it\normalsize #1} \\ \medskip \end{center}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\rfoot{\setlength{\unitlength}{1mm}
+%\begin{picture}(5,0)
+%\put(5,0){\includegraphics[width=3cm]{ok/expo000\thepage.epsi}}
+%\end{picture}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../thesis_renzo"
+%%% End:

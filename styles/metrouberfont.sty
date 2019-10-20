@@ -1,0 +1,17 @@
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{metrouberfont}[2010/03/05 v1.0 Metro Uber Freebie]%
+\RequirePackage{textcomp}%
+\RequirePackage{xkeyval}%
+\define@key{metrouberfont.sty}{scaled}[1.0]%
+{%
+  \def\SMFF@Ska@scale{#1}%
+}%
+\define@key{metrouberfont.sty}{leading}[1.0]%
+{%
+  \linespread{#1}%
+}%
+\ExecuteOptionsX{scaled}%
+\ProcessOptionsX\relax%
+\renewcommand*{\rmdefault}{6ka}%
+\newcommand\FFMetroUber{\fontfamily{6ka}\fontseries{m}\fontshape{n}\selectfont}%
+\endinput%
